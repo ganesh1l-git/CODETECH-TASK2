@@ -1,81 +1,88 @@
-def calculate_letter_grade(average):
-    """Converts a numeric average to a letter grade."""
-    if average >= 90:
-        return "A"
-    elif average >= 80:
-        return "B"
-    elif average >= 70:
-        return "C"
-    elif average >= 60:
-        return "D"
-    else:
-        return "F"
-        
-def calculate_gpa(letter_grade):
-    """Converts a letter grade to GPA (on a 4.0 scale)."""
-    grade_to_gpa = {
-        "A": 4.0,
-        "B": 3.0,
-        "C": 2.0,
-        "D": 1.0,
-        "F": 0.0,
-    }
-    return grade_to_gpa.get(letter_grade, 0.0)
+name:killari Ganesh company:CODTECH IT SOLUTIONS ID:CT08FAH DOMAIN:PYTHON DURATION:DECEMBER TO JANUARY
 
-def manage_student_grades():
-    """Main function to track and manage student grades."""
-    print("Welcome to the Student Grade Manager!")
+OVERVIEW OF THE PROJECT
 
-    grades = {}
+Project Description
+The Student Grade Manager is a Python-based program designed to help users input, track, and manage student grades. It enables users to record grades for various subjects or assignments, calculate the average grade, and display an overall performance summary, including the letter grade and GPA. The program uses a user-friendly command-line interface and offers robust error handling to ensure a smooth experience.
 
-    while True:
-        print("\nOptions:")
-        print("1. Add/Edit a grade")
-        print("2. View all grades")
-        print("3. Calculate average, letter grade, and GPA")
-        print("4. Exit")
+Key Features
 
-        choice = input("Choose an option (1/2/3/4): ")
+1. Grade Management:
 
-        if choice == '1':
-            # Add or update a grade
-            subject = input("Enter the subject/assignment name: ")
-            try:
-                grade = float(input(f"Enter the grade for {subject} (0-100): "))
-                if 0 <= grade <= 100:
-                    grades[subject] = grade
-                    print(f"Grade for {subject} has been recorded.")
-                else:
-                    print("Error: Grade must be between 0 and 100.")
-            except ValueError:
-                print("Error: Invalid input. Please enter a numeric grade.")
+Add grades for multiple subjects or assignments.
+Update existing grades if needed.
 
-        elif choice == '2':
-            # View all grades
-            if grades:
-                print("\nGrades:")
-                for subject, grade in grades.items():
-                    print(f"{subject}: {grade}")
-            else:
-                print("No grades have been entered yet.")
+2. Performance Calculation:
 
-        elif choice == '3':
-            # Calculate and display performance
-            if grades:
-                average = sum(grades.values()) / len(grades)
-                letter_grade = calculate_letter_grade(average)
-                gpa = calculate_gpa(letter_grade)
+Calculate the average grade across all subjects.
+Convert the average grade into a letter grade (A-F).
+Compute the GPA based on a 4.0 scale.
 
-                print("\nOverall Performance:")
-                print(f"Average Grade: {average:.2f}")
-                print(f"Letter Grade: {letter_grade}")
-                print(f"GPA: {gpa:.2f}")
-            else:
-                print("No grades available to calculate performance.")
+3. User-Friendly Interface:
 
-        elif choice == '4':
-            print("Exiting the program. Goodbye!")
-            break
+Clear menus for navigation.
+Simple and intuitive prompts for data input.
 
-        else:
-            print("Invalid choice. Please choose a valid option.")
+4. Error Handling:
+
+Validates grades to ensure they are within the 0–100 range.
+Handles invalid or non-numeric inputs gracefully.
+
+5. Exit Option:
+Allows the user to terminate the program at any time.
+
+How It Works
+
+1. User Input:
+2. 
+Users can add or edit grades by specifying a subject and entering a numeric grade.
+Grades are stored in a dictionary for easy access and management.
+
+3. View Grades:
+4. 
+Users can display all recorded grades, along with their corresponding subjects.
+
+5. Calculate Performance:
+The program calculates the average of all entered grades.
+It determines the corresponding letter grade and GPA.
+Displays the results in a clear and organized format.
+
+6. Exit Program:
+
+Users can safely exit the program after completing their tasks.
+Technical Details
+Programming Language: Python
+Core Concepts Used:
+Loops (while)
+Conditional statements (if-elif-else)
+Dictionaries for data storage
+Functions for modular design
+Input Validation: Ensures grades are numeric and fall within a valid range (0–100).
+
+User Workflow
+
+1. Start the program and view the main menu.
+2. Add or update grades for various subjects or assignments.
+3. View all recorded grades.
+4. Calculate and display overall performance metrics:
+Average Grade
+Letter Grade
+GPA
+5. Repeat the process as needed or exit the program.
+
+Use Cases
+
+1. Teachers and Tutors: Manage student grades for individual assignments or exams.
+2. Students: Track personal academic progress across subjects.
+3. Programming Learners: Understand key Python concepts like dictionaries, loops, and input validation.
+
+Potential Enhancements
+
+1. Persistent Storage: Save and retrieve grades from a file.
+2. Weighting: Allow weighted averages for different assignment types (e.g., homework, exams).
+3. Multi-Student Support: Extend functionality to handle multiple students’ grades.
+4. Graphical Interface: Use a GUI library like tkinter or PyQt for a more user-friendly interface.
+This project serves as a practical example of how Python can be used to create effective, real-world applications while demonstrating fundamental programming principles.
+
+RESULT
+![image](https://github.com/user-attachments/assets/92fafa78-e3e7-461c-8a6b-36e7f36d58cd)
