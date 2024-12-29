@@ -1,0 +1,83 @@
+def calculate_letter_grade(average):
+    """Converts a numeric average to a letter grade."""
+    if average >= 90:
+        return "A"
+    elif average >= 80:
+        return "B"
+    elif average >= 70:
+        return "C"
+    elif average >= 60:
+        return "D"
+    else:
+        return "F"
+
+
+def calculate_gpa(letter_grade):
+    """Converts a letter grade to GPA (on a 4.0 scale)."""
+    grade_to_gpa = {
+        "A": 4.0,
+        "B": 3.0,
+        "C": 2.0,
+        "D": 1.0,
+        "F": 0.0,
+    }
+    return grade_to_gpa.get(letter_grade, 0.0)
+
+
+def manage_student_grades():
+    """Main function to track and manage student grades."""
+    print("Welcome to the Student Grade Manager!")
+
+    grades = {}
+
+    while True:
+        print("\nOptions:")
+        print("1. Add/Edit a grade")
+        print("2. View all grades")
+        print("3. Calculate average, letter grade, and GPA")
+        print("4. Exit")
+
+        choice = input("Choose an option (1/2/3/4): ")
+
+        if choice == '1':
+            # Add or update a grade
+            subject = input("Enter the subject/assignment name: ")
+            try:
+                grade = float(input(f"Enter the grade for {subject} (0-100): "))
+                if 0 <= grade <= 100:
+                    grades[subject] = grade
+                    print(f"Grade for {subject} has been recorded.")
+                else:
+                    print("Error: Grade must be between 0 and 100.")
+            except ValueError:
+                print("Error: Invalid input. Please enter a numeric grade.")
+
+        elif choice == '2':
+            # View all grades
+            if grades:
+                print("\nGrades:")
+                for subject, grade in grades.items():
+                    print(f"{subject}: {grade}")
+            else:
+                print("No grades have been entered yet.")
+
+        elif choice == '3':
+            # Calculate and display performance
+            if grades:
+                average = sum(grades.values()) / len(grades)
+                letter_grade = calculate_letter_grade(average)
+                gpa = calculate_gpa(letter_grade)
+
+                print("\nOverall Performance:")
+                print(f"Average Grade: {average:.2f}")
+                print(f"Letter Grade: {letter_grade}")
+                print(f"GPA: {gpa:.2f}")
+            else:
+                print("No grades available to calculate performance.")
+
+        elif choice == '4':
+            print("Exiting the program. Goodbye!")
+            break
+
+        else:
+            print("Invalid choice. Please choose a valid option.")
